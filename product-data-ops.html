@@ -1,27 +1,14 @@
-<title>Quant Intern Board</title>
+<title>Product &amp; Data Intern Board</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
   :root {
-    --ink: #161a1f;
-    --paper: #f5f6f3;
-    --surface: #ffffff;
-    --line: #dfe1db;
-    --line-strong: #c9cdc4;
-    --muted: #6b7178;
-    --accent: #1d5f8a;
-    --accent-soft: #e5eef3;
-    --good: #2f7a4f;
-    --good-soft: #e6f2ea;
-    --warn: #8a6a12;
-    --warn-soft: #f7edd6;
-    --critical: #a1433f;
-    --critical-soft: #f6e6e4;
-    --neutral-badge: #eceeea;
-    --neutral-badge-ink: #5a5f68;
+    --ink: #161a1f; --paper: #f5f6f3; --surface: #ffffff; --line: #dfe1db; --line-strong: #c9cdc4;
+    --muted: #6b7178; --accent: #1d5f8a; --accent-soft: #e5eef3; --good: #2f7a4f; --good-soft: #e6f2ea;
+    --warn: #8a6a12; --warn-soft: #f7edd6; --critical: #a1433f; --critical-soft: #f6e6e4;
+    --neutral-badge: #eceeea; --neutral-badge-ink: #5a5f68;
     --shadow: 0 1px 2px rgba(22,26,31,0.04), 0 8px 24px rgba(22,26,31,0.06);
   }
-
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --ink: #eef0ee; --paper: #14171a; --surface: #1b1f23; --line: #2b3035; --line-strong: #3a4046;
@@ -63,14 +50,14 @@
   .stat .num { font-family: 'Fraunces', serif; font-weight: 600; font-size: 26px; font-variant-numeric: tabular-nums; }
   .stat .label { font-size: 11.5px; color: var(--muted); letter-spacing: 0.01em; }
 
-  .notice { background: var(--critical-soft); border-left: 3px solid var(--critical); border-radius: 6px; padding: 12px 16px; font-size: 13px; color: var(--ink); line-height: 1.55; margin-bottom: 24px; }
-  .notice b { color: var(--critical); }
+  .notice { background: var(--warn-soft); border-left: 3px solid var(--warn); border-radius: 6px; padding: 12px 16px; font-size: 13px; color: var(--ink); line-height: 1.55; margin-bottom: 24px; }
+  .notice b { color: var(--warn); }
 
   .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 32px 0 12px; display: flex; align-items: center; gap: 10px; }
   .section-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
   .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: var(--shadow); }
-  table { width: 100%; min-width: 780px; border-collapse: collapse; font-size: 13px; }
+  table { width: 100%; min-width: 820px; border-collapse: collapse; font-size: 13px; }
   thead th { position: sticky; top: 0; background: var(--surface); text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); font-weight: 500; padding: 12px 14px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
   tbody tr { border-bottom: 1px solid var(--line); }
   tbody tr:last-child { border-bottom: none; }
@@ -80,15 +67,29 @@
   .program-track { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
   .mono { font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
   .muted-cell { color: var(--muted); }
-  .when-cell.flag { color: var(--critical); font-weight: 600; }
   .when-cell .season-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 6px; background: var(--good); }
-  .when-cell.flag .season-dot { background: var(--critical); }
 
   .badge { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.03em; padding: 3px 8px; border-radius: 5px; white-space: nowrap; }
+  .badge-med { background: var(--warn-soft); color: var(--warn); }
   .badge-neutral { background: var(--neutral-badge); color: var(--neutral-badge-ink); }
 
   .apply-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 12.5px; white-space: nowrap; }
   .apply-link:hover { text-decoration: underline; }
+
+  .callout { background: var(--critical-soft); border-radius: 10px; padding: 16px 20px; font-size: 13.5px; line-height: 1.6; color: var(--ink); }
+  .callout b { color: var(--critical); }
+
+  .empty-cat {
+    border: 1px dashed var(--line-strong);
+    border-radius: 10px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .empty-cat .cat-name { font-weight: 600; font-size: 14px; }
+  .empty-cat .cat-note { font-size: 13px; color: var(--muted); line-height: 1.55; }
+  .empty-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 14px; }
 
   .bottom-line { background: var(--accent-soft); border-radius: 10px; padding: 16px 20px; font-size: 13.5px; line-height: 1.6; color: var(--ink); margin-top: 28px; }
   .bottom-line b { color: var(--accent); }
@@ -103,86 +104,88 @@
   <nav class="board-nav">
     <a href="https://claude.ai/code/artifact/08d1580d-ba56-42ae-b9bf-c39737988dde">All Programs</a>
     <a href="https://claude.ai/code/artifact/c8df4743-79d6-4c3f-8758-f10f51dd1b1a">Engineering &amp; Tech</a>
-    <a href="#" class="current">Quant &amp; Trading</a>
-    <a href="https://claude.ai/code/artifact/73ddd8b0-dd91-4535-bb44-614c3f2eba37">Product, Data &amp; Ops</a>
+    <a href="https://claude.ai/code/artifact/6bdfb8be-320c-492c-b0a8-2ae688e0ef78">Quant &amp; Trading</a>
+    <a href="#" class="current">Product, Data &amp; Ops</a>
   </nav>
 
   <header class="page-head">
-    <div class="eyebrow">Daily Digest &middot; Quant &amp; Trading</div>
-    <h1>Quant Intern Board</h1>
-    <p class="dek">Freshman &amp; sophomore-eligible pipeline programs and diversity internships at quant trading firms in the USA.</p>
+    <div class="eyebrow">Daily Digest &middot; Product, Data &amp; Operations</div>
+    <h1>Product &amp; Data Intern Board</h1>
+    <p class="dek">Freshman &amp; sophomore-eligible Product Management, Data Science, Operations, and Industrial Engineering programs at big tech — plus an honest accounting of where none exist.</p>
     <div class="meta-line">
       <span>Last updated: Sep 6, 2026</span>
       <span>&middot;</span>
-      <span>4 programs tracked</span>
+      <span>2 programs found</span>
       <span>&middot;</span>
-      <span>Cycle: Fall 2026 – Winter 2027</span>
+      <span>2 categories: no verified programs</span>
     </div>
   </header>
 
   <div class="stats">
-    <div class="stat"><span class="num">4</span><span class="label">Programs tracked</span></div>
-    <div class="stat"><span class="num">2</span><span class="label">Run in winter, not summer</span></div>
-    <div class="stat"><span class="num">3</span><span class="label">Pay not publicly disclosed</span></div>
-    <div class="stat"><span class="num">1</span><span class="label">Single-day event (unpaid)</span></div>
+    <div class="stat"><span class="num">2</span><span class="label">Confirmed programs found</span></div>
+    <div class="stat"><span class="num">2</span><span class="label">Programs cover Product Mgmt</span></div>
+    <div class="stat"><span class="num">2</span><span class="label">Categories with zero results</span></div>
   </div>
 
   <div class="notice">
-    <b>These are shorter, off-cycle programs</b> — mostly multi-day pipeline events or 1–4 week programs, not full 10-12 week summer internships. They're designed to fast-track you into a full internship later, not to be the internship itself (except WITTI, which is its own standalone winter internship).
+    <b>Why this page is short:</b> dedicated freshman/sophomore pipelines are a niche big-tech HR product, and almost all of them are built for software engineering. Product Management, Data Science, Operations, and Industrial Engineering versions are rare — I checked each directly against official company sources rather than repeat aggregator claims that don't hold up (see the Google APM and Amazon Propel notes below).
   </div>
 
-  <div class="section-label">Confirmed &amp; Likely-Open Programs</div>
+  <div class="section-label">Confirmed Programs</div>
 
   <div class="table-scroll">
     <table>
       <thead>
         <tr>
-          <th>Program</th><th>Location</th><th>Duration</th><th>When</th><th>Reported Pay</th><th>Type</th><th>Apply</th>
+          <th>Program</th><th>Category</th><th>Location</th><th>Duration</th><th>When</th><th>Confidence</th><th>Apply</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><div class="program-name">Jane Street — FTTP</div><div class="program-track">Pipeline event, not a full internship</div></td>
-          <td class="muted-cell">New York, NY</td>
-          <td class="mono">~3–4 days</td>
-          <td class="when-cell"><span class="season-dot"></span>Fall/Winter 2026</td>
-          <td class="muted-cell">Not disclosed</td>
-          <td><span class="badge badge-neutral">1ST-YEAR</span></td>
-          <td><a class="apply-link" href="https://www.janestreet.com/join-jane-street/programs-and-events/fttp/">Apply →</a></td>
+          <td><div class="program-name">Duolingo — Thrive</div><div class="program-track">Sophomores from underrepresented backgrounds</div></td>
+          <td class="muted-cell">Product Mgmt / SWE / Design</td>
+          <td class="muted-cell">Pittsburgh, PA (HQ)</td>
+          <td class="mono">10 wks</td>
+          <td class="when-cell"><span class="season-dot"></span>Summer 2027 (PM track opens Oct 2026)</td>
+          <td><span class="badge badge-med">MEDIUM</span></td>
+          <td><a class="apply-link" href="https://careers.duolingo.com/">Apply →</a></td>
         </tr>
         <tr>
-          <td><div class="program-name">SIG — Discovery Day</div><div class="program-track">Trading / Quant Research</div></td>
-          <td class="muted-cell">Bala Cynwyd, PA</td>
-          <td class="mono">1 day</td>
-          <td class="when-cell"><span class="season-dot"></span>TBD (recruiting event)</td>
-          <td class="muted-cell">N/A — unpaid</td>
-          <td><span class="badge badge-neutral">FR/SOPH</span></td>
-          <td><a class="apply-link" href="https://careers.sig.com/sig-discovery-days/">Apply →</a></td>
-        </tr>
-        <tr>
-          <td><div class="program-name">HRT — WITTI</div><div class="program-track">Trading Technology, women-focused</div></td>
-          <td class="muted-cell">New York, NY</td>
-          <td class="mono">2–4 wks</td>
-          <td class="when-cell flag"><span class="season-dot"></span>Winter (starts ~Jan 6)</td>
-          <td class="muted-cell">Not disclosed</td>
-          <td><span class="badge badge-neutral">WOMEN</span></td>
-          <td><a class="apply-link" href="https://boards.greenhouse.io/wehrtyou/jobs/6305711">Apply →</a></td>
-        </tr>
-        <tr>
-          <td><div class="program-name">Virtu — Women's Winternship</div><div class="program-track">Trading / Technology</div></td>
-          <td class="muted-cell">New York, NY (+ Dublin)</td>
-          <td class="mono">1 wk</td>
-          <td class="when-cell flag"><span class="season-dot"></span>Winter (~Jan 5–9)</td>
-          <td class="muted-cell">Not disclosed</td>
-          <td><span class="badge badge-neutral">WOMEN</span></td>
-          <td><a class="apply-link" href="https://job-boards.greenhouse.io/virtu/jobs/7505552002">Apply →</a></td>
+          <td><div class="program-name">MongoDB — Next in Tech Summit</div><div class="program-track">Underrepresented students, Developer or "Technology+" track</div></td>
+          <td class="muted-cell">Data Science / SWE (Tech+ track)</td>
+          <td class="muted-cell">New York, NY (virtual event)</td>
+          <td class="mono">1-day virtual summit</td>
+          <td class="when-cell"><span class="season-dot"></span>Leads to Summer 2027 interviews</td>
+          <td><span class="badge badge-med">MEDIUM</span></td>
+          <td><a class="apply-link" href="https://www.mongodb.com/company/careers/students-and-graduates">Apply →</a></td>
         </tr>
       </tbody>
     </table>
   </div>
 
+  <div class="section-label">Categories With No Verified Program</div>
+
+  <div class="empty-grid">
+    <div class="empty-cat">
+      <span class="cat-name">Operations</span>
+      <span class="cat-note">No freshman/sophomore-specific Operations pipeline found at any big tech company. Wells Fargo runs a "Global Operations Early Talent" program, but it's a bank, not a tech company, so it's excluded here.</span>
+    </div>
+    <div class="empty-cat">
+      <span class="cat-name">Industrial Engineering</span>
+      <span class="cat-note">No freshman/sophomore-specific IE program found at big tech. GM and Michelin post 2027 industrial engineering internships, but neither is a tech company and neither has an underclassman-specific track.</span>
+    </div>
+  </div>
+
+  <div class="section-label">Explicitly Not Freshman/Sophomore-Eligible</div>
+  <div class="callout" style="margin-bottom:10px;">
+    <b>Google APM</b> (Associate Product Manager) — official Google eligibility is rising seniors and equivalent grad students only. Freshmen and sophomores cannot apply, despite this being the most well-known "big tech PM internship."
+  </div>
+  <div class="callout">
+    <b>Amazon Propel</b> &amp; <b>LinkedIn "First Play"</b> — widely repeated across aggregator sites as freshman/sophomore programs, but neither has a current official-domain posting confirming 2027 eligibility, dates, or even that the program still runs. Treating both as unconfirmed rather than listing them as real.
+  </div>
+
   <div class="bottom-line">
-    <b>Bottom line:</b> quant-firm underclassman programs run on a different calendar than tech — mostly fall/winter recruiting events feeding into summer internship offers, or standalone women-in-trading winter programs. Apply early: several use rolling admissions.
+    <b>Bottom line:</b> if you're set on Product Management or Data Science as a freshman/sophomore, Duolingo Thrive and MongoDB's Next in Tech Summit are the only two big-tech programs I could verify. Everything else in these four categories is either for upperclassmen only or unconfirmed.
   </div>
 
   <footer>
