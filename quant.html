@@ -95,6 +95,63 @@
 
   footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11.5px; font-family: 'IBM Plex Mono', monospace; }
 
+  @media (max-width: 700px) {
+    .wrap { padding: 24px 14px 56px; }
+    .board-nav { gap: 6px; }
+    .board-nav a { font-size: 11px; padding: 6px 10px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .table-scroll { overflow-x: visible; border: none; box-shadow: none; background: transparent; }
+    table { min-width: 0; }
+    table, tbody, tr { display: block; width: 100%; }
+    thead { display: none; }
+    tbody tr {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+    }
+    tbody tr:hover { background: var(--surface); }
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 7px 0;
+      border-bottom: 1px dashed var(--line);
+      text-align: right;
+    }
+    td::before {
+      content: attr(data-label);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+    td:first-child {
+      display: block;
+      text-align: left;
+      padding-bottom: 10px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+    td:first-child::before { content: none; }
+    td:last-child {
+      display: block;
+      text-align: right;
+      margin-top: 2px;
+      padding-top: 9px;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: none;
+    }
+    td:last-child::before { content: none; }
+  }
+
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
@@ -104,7 +161,7 @@
     <a href="https://claude.ai/code/artifact/08d1580d-ba56-42ae-b9bf-c39737988dde">All Programs</a>
     <a href="https://claude.ai/code/artifact/c8df4743-79d6-4c3f-8758-f10f51dd1b1a">Engineering &amp; Tech</a>
     <a href="#" class="current">Quant &amp; Trading</a>
-    <a href="https://claude.ai/code/artifact/73ddd8b0-dd91-4535-bb44-614c3f2eba37">Product, Data &amp; Ops</a>
+    <a href="https://claude.ai/code/artifact/73ddd8b0-dd91-4535-bb44-614c3f2eba37">Business Track</a>
   </nav>
 
   <header class="page-head">
@@ -142,44 +199,44 @@
       </thead>
       <tbody>
         <tr>
-          <td><div class="program-name">Jane Street — FTTP</div><div class="program-track">Pipeline event, not a full internship</div></td>
-          <td class="muted-cell">New York, NY</td>
-          <td class="mono">~3–4 days</td>
-          <td class="when-cell"><span class="season-dot"></span>Fall/Winter 2026</td>
-          <td class="muted-cell">Not disclosed</td>
-          <td class="muted-cell">None — no coding or finance background required</td>
-          <td><span class="badge badge-neutral">1ST-YEAR</span></td>
-          <td><a class="apply-link" href="https://www.janestreet.com/join-jane-street/programs-and-events/fttp/">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">Jane Street — FTTP</div><div class="program-track">Pipeline event, not a full internship</div></td>
+          <td class="muted-cell" data-label="Location">New York, NY</td>
+          <td class="mono" data-label="Duration">~3–4 days</td>
+          <td class="when-cell" data-label="When"><span class="season-dot"></span>Fall/Winter 2026</td>
+          <td class="muted-cell" data-label="Reported Pay">Not disclosed</td>
+          <td class="muted-cell" data-label="Experience Needed">None — no coding or finance background required</td>
+          <td data-label="Type"><span class="badge badge-neutral">1ST-YEAR</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://www.janestreet.com/join-jane-street/programs-and-events/fttp/">Apply →</a></td>
         </tr>
         <tr>
-          <td><div class="program-name">SIG — Discovery Day</div><div class="program-track">Trading / Quant Research</div></td>
-          <td class="muted-cell">Bala Cynwyd, PA</td>
-          <td class="mono">1 day</td>
-          <td class="when-cell"><span class="season-dot"></span>TBD (recruiting event)</td>
-          <td class="muted-cell">N/A — unpaid</td>
-          <td class="muted-cell">None — no finance or coding background required</td>
-          <td><span class="badge badge-neutral">FR/SOPH</span></td>
-          <td><a class="apply-link" href="https://careers.sig.com/sig-discovery-days/">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">SIG — Discovery Day</div><div class="program-track">Trading / Quant Research</div></td>
+          <td class="muted-cell" data-label="Location">Bala Cynwyd, PA</td>
+          <td class="mono" data-label="Duration">1 day</td>
+          <td class="when-cell" data-label="When"><span class="season-dot"></span>TBD (recruiting event)</td>
+          <td class="muted-cell" data-label="Reported Pay">N/A — unpaid</td>
+          <td class="muted-cell" data-label="Experience Needed">None — no finance or coding background required</td>
+          <td data-label="Type"><span class="badge badge-neutral">FR/SOPH</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://careers.sig.com/sig-discovery-days/">Apply →</a></td>
         </tr>
         <tr>
-          <td><div class="program-name">HRT — WITTI</div><div class="program-track">Trading Technology, women-focused</div></td>
-          <td class="muted-cell">New York, NY</td>
-          <td class="mono">2–4 wks</td>
-          <td class="when-cell flag"><span class="season-dot"></span>Winter (starts ~Jan 6)</td>
-          <td class="muted-cell">Not disclosed</td>
-          <td class="muted-cell">Demonstrated programming (C/C++/Python/Rust preferred)</td>
-          <td><span class="badge badge-neutral">WOMEN</span></td>
-          <td><a class="apply-link" href="https://boards.greenhouse.io/wehrtyou/jobs/6305711">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">HRT — WITTI</div><div class="program-track">Trading Technology, women-focused</div></td>
+          <td class="muted-cell" data-label="Location">New York, NY</td>
+          <td class="mono" data-label="Duration">2–4 wks</td>
+          <td class="when-cell flag" data-label="When"><span class="season-dot"></span>Winter (starts ~Jan 6)</td>
+          <td class="muted-cell" data-label="Reported Pay">Not disclosed</td>
+          <td class="muted-cell" data-label="Experience Needed">Demonstrated programming (C/C++/Python/Rust preferred)</td>
+          <td data-label="Type"><span class="badge badge-neutral">WOMEN</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://boards.greenhouse.io/wehrtyou/jobs/6305711">Apply →</a></td>
         </tr>
         <tr>
-          <td><div class="program-name">Virtu — Women's Winternship</div><div class="program-track">Trading / Technology</div></td>
-          <td class="muted-cell">New York, NY (+ Dublin)</td>
-          <td class="mono">1 wk</td>
-          <td class="when-cell flag"><span class="season-dot"></span>Winter (~Jan 5–9)</td>
-          <td class="muted-cell">Not disclosed</td>
-          <td class="muted-cell">Intermediate/advanced programming (Python preferred)</td>
-          <td><span class="badge badge-neutral">WOMEN</span></td>
-          <td><a class="apply-link" href="https://job-boards.greenhouse.io/virtu/jobs/7505552002">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">Virtu — Women's Winternship</div><div class="program-track">Trading / Technology</div></td>
+          <td class="muted-cell" data-label="Location">New York, NY (+ Dublin)</td>
+          <td class="mono" data-label="Duration">1 wk</td>
+          <td class="when-cell flag" data-label="When"><span class="season-dot"></span>Winter (~Jan 5–9)</td>
+          <td class="muted-cell" data-label="Reported Pay">Not disclosed</td>
+          <td class="muted-cell" data-label="Experience Needed">Intermediate/advanced programming (Python preferred)</td>
+          <td data-label="Type"><span class="badge badge-neutral">WOMEN</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://job-boards.greenhouse.io/virtu/jobs/7505552002">Apply →</a></td>
         </tr>
       </tbody>
     </table>

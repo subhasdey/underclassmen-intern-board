@@ -99,6 +99,63 @@
 
   footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11.5px; font-family: 'IBM Plex Mono', monospace; }
 
+  @media (max-width: 700px) {
+    .wrap { padding: 24px 14px 56px; }
+    .board-nav { gap: 6px; }
+    .board-nav a { font-size: 11px; padding: 6px 10px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .table-scroll { overflow-x: visible; border: none; box-shadow: none; background: transparent; }
+    table { min-width: 0; }
+    table, tbody, tr { display: block; width: 100%; }
+    thead { display: none; }
+    tbody tr {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+    }
+    tbody tr:hover { background: var(--surface); }
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 7px 0;
+      border-bottom: 1px dashed var(--line);
+      text-align: right;
+    }
+    td::before {
+      content: attr(data-label);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+    td:first-child {
+      display: block;
+      text-align: left;
+      padding-bottom: 10px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+    td:first-child::before { content: none; }
+    td:last-child {
+      display: block;
+      text-align: right;
+      margin-top: 2px;
+      padding-top: 9px;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: none;
+    }
+    td:last-child::before { content: none; }
+  }
+
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
@@ -108,7 +165,7 @@
     <a href="https://claude.ai/code/artifact/08d1580d-ba56-42ae-b9bf-c39737988dde">All Programs</a>
     <a href="#" class="current">Engineering &amp; Tech</a>
     <a href="https://claude.ai/code/artifact/6bdfb8be-320c-492c-b0a8-2ae688e0ef78">Quant &amp; Trading</a>
-    <a href="https://claude.ai/code/artifact/73ddd8b0-dd91-4535-bb44-614c3f2eba37">Product, Data &amp; Ops</a>
+    <a href="https://claude.ai/code/artifact/73ddd8b0-dd91-4535-bb44-614c3f2eba37">Business Track</a>
   </nav>
 
   <header class="page-head">
@@ -146,64 +203,64 @@
       </thead>
       <tbody>
         <tr>
-          <td><div class="program-name">NVIDIA — Ignite</div><div class="program-track">SW / HW / AV&amp;Robotics / Biz Ops</div></td>
-          <td class="muted-cell">Santa Clara, CA + other US sites</td>
-          <td class="mono">12 wks</td>
-          <td class="when-cell"><span class="season-dot"></span>Summer 2027 (Jun–Aug)</td>
-          <td class="mono">~$33/hr <span class="muted-cell">($18–54)</span></td>
-          <td class="muted-cell">1+ language (C/C++/Python/MATLAB); no internship required</td>
-          <td><span class="badge badge-high">HIGH</span></td>
-          <td><a class="apply-link" href="https://www.nvidia.com/en-us/about-nvidia/careers/university-recruiting/">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">NVIDIA — Ignite</div><div class="program-track">SW / HW / AV&amp;Robotics / Biz Ops</div></td>
+          <td class="muted-cell" data-label="Location">Santa Clara, CA + other US sites</td>
+          <td class="mono" data-label="Duration">12 wks</td>
+          <td class="when-cell" data-label="When"><span class="season-dot"></span>Summer 2027 (Jun–Aug)</td>
+          <td class="mono" data-label="Reported Pay">~$33/hr <span class="muted-cell">($18–54)</span></td>
+          <td class="muted-cell" data-label="Experience Needed">1+ language (C/C++/Python/MATLAB); no internship required</td>
+          <td data-label="Confidence"><span class="badge badge-high">HIGH</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://www.nvidia.com/en-us/about-nvidia/careers/university-recruiting/">Apply →</a></td>
         </tr>
         <tr>
-          <td><div class="program-name">Microsoft — Explore</div><div class="program-track">Assigned to a "pod"</div></td>
-          <td class="muted-cell">Redmond, WA / Atlanta, GA</td>
-          <td class="mono">12 wks</td>
-          <td class="when-cell"><span class="season-dot"></span>Summer 2027</td>
-          <td class="muted-cell">Unreliable data found</td>
-          <td class="muted-cell">Intro CS course + 1 semester calculus</td>
-          <td><span class="badge badge-med">MEDIUM</span></td>
-          <td><a class="apply-link" href="https://careers.microsoft.com/v2/global/en/exploremicrosoft">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">Microsoft — Explore</div><div class="program-track">Assigned to a "pod"</div></td>
+          <td class="muted-cell" data-label="Location">Redmond, WA / Atlanta, GA</td>
+          <td class="mono" data-label="Duration">12 wks</td>
+          <td class="when-cell" data-label="When"><span class="season-dot"></span>Summer 2027</td>
+          <td class="muted-cell" data-label="Reported Pay">Unreliable data found</td>
+          <td class="muted-cell" data-label="Experience Needed">Intro CS course + 1 semester calculus</td>
+          <td data-label="Confidence"><span class="badge badge-med">MEDIUM</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://careers.microsoft.com/v2/global/en/exploremicrosoft">Apply →</a></td>
         </tr>
         <tr>
-          <td><div class="program-name">Capital One — TEIP</div><div class="program-track">Technology (assigned)</div></td>
-          <td class="muted-cell">McLean, VA (housing provided)</td>
-          <td class="mono">10 wks</td>
-          <td class="when-cell"><span class="season-dot"></span>Summer 2027</td>
-          <td class="mono">~$30/hr <span class="muted-cell">(~$63k/yr)</span></td>
-          <td class="muted-cell">None required — includes a coding bootcamp</td>
-          <td><span class="badge badge-med">MEDIUM</span></td>
-          <td><a class="apply-link" href="https://www.capitalonecareers.com/internship-programs">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">Capital One — TEIP</div><div class="program-track">Technology (assigned)</div></td>
+          <td class="muted-cell" data-label="Location">McLean, VA (housing provided)</td>
+          <td class="mono" data-label="Duration">10 wks</td>
+          <td class="when-cell" data-label="When"><span class="season-dot"></span>Summer 2027</td>
+          <td class="mono" data-label="Reported Pay">~$30/hr <span class="muted-cell">(~$63k/yr)</span></td>
+          <td class="muted-cell" data-label="Experience Needed">None required — includes a coding bootcamp</td>
+          <td data-label="Confidence"><span class="badge badge-med">MEDIUM</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://www.capitalonecareers.com/internship-programs">Apply →</a></td>
         </tr>
         <tr>
-          <td><div class="program-name">Uber — UberSTAR</div><div class="program-track">Varies by requisition</div></td>
-          <td class="muted-cell">Varies by requisition</td>
-          <td class="mono">12 wks</td>
-          <td class="when-cell"><span class="season-dot"></span>May–Aug 2027</td>
-          <td class="mono">~$46/hr (NY) <span class="muted-cell">wide spread</span></td>
-          <td class="muted-cell">Intro CS course + 1 language (Go/Python/Java/C++)</td>
-          <td><span class="badge badge-med">MEDIUM</span></td>
-          <td><a class="apply-link" href="https://jobs.uber.com/en/teams/emerging-talent/">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">Uber — UberSTAR</div><div class="program-track">Varies by requisition</div></td>
+          <td class="muted-cell" data-label="Location">Varies by requisition</td>
+          <td class="mono" data-label="Duration">12 wks</td>
+          <td class="when-cell" data-label="When"><span class="season-dot"></span>May–Aug 2027</td>
+          <td class="mono" data-label="Reported Pay">~$46/hr (NY) <span class="muted-cell">wide spread</span></td>
+          <td class="muted-cell" data-label="Experience Needed">Intro CS course + 1 language (Go/Python/Java/C++)</td>
+          <td data-label="Confidence"><span class="badge badge-med">MEDIUM</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://jobs.uber.com/en/teams/emerging-talent/">Apply →</a></td>
         </tr>
         <tr>
-          <td><div class="program-name">SpaceX — Internship</div><div class="program-track">Engineering / Software (assigned)</div></td>
-          <td class="muted-cell">Hawthorne, CA + Brownsville TX, Cape Canaveral FL, McGregor TX, Vandenberg CA</td>
-          <td class="mono">12 wks min</td>
-          <td class="when-cell"><span class="season-dot"></span>Spring or Summer 2027</td>
-          <td class="mono">$28–30/hr <span class="muted-cell">(fresh/soph tier)</span></td>
-          <td class="muted-cell">~3 mo hands-on (labs/projects count); Python/C++/MATLAB valued</td>
-          <td><span class="badge badge-med">MEDIUM</span></td>
-          <td><a class="apply-link" href="https://job-boards.greenhouse.io/spacex/jobs/8621757002">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">SpaceX — Internship</div><div class="program-track">Engineering / Software (assigned)</div></td>
+          <td class="muted-cell" data-label="Location">Hawthorne, CA + Brownsville TX, Cape Canaveral FL, McGregor TX, Vandenberg CA</td>
+          <td class="mono" data-label="Duration">12 wks min</td>
+          <td class="when-cell" data-label="When"><span class="season-dot"></span>Spring or Summer 2027</td>
+          <td class="mono" data-label="Reported Pay">$28–30/hr <span class="muted-cell">(fresh/soph tier)</span></td>
+          <td class="muted-cell" data-label="Experience Needed">~3 mo hands-on (labs/projects count); Python/C++/MATLAB valued</td>
+          <td data-label="Confidence"><span class="badge badge-med">MEDIUM</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://job-boards.greenhouse.io/spacex/jobs/8621757002">Apply →</a></td>
         </tr>
         <tr>
-          <td><div class="program-name">Palantir — Path</div><div class="program-track">Assigned by placement</div></td>
-          <td class="muted-cell">New York, NY or Washington, DC</td>
-          <td class="mono">10–12 wks</td>
-          <td class="when-cell"><span class="season-dot"></span>Summer 2027</td>
-          <td class="mono">~$10k/mo <span class="muted-cell">+ housing</span></td>
-          <td class="muted-cell">Some coding exposure; no prior internship required</td>
-          <td><span class="badge badge-neutral">SOPH/JR</span></td>
-          <td><a class="apply-link" href="https://jobs.lever.co/palantir?commitment=Internship">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">Palantir — Path</div><div class="program-track">Assigned by placement</div></td>
+          <td class="muted-cell" data-label="Location">New York, NY or Washington, DC</td>
+          <td class="mono" data-label="Duration">10–12 wks</td>
+          <td class="when-cell" data-label="When"><span class="season-dot"></span>Summer 2027</td>
+          <td class="mono" data-label="Reported Pay">~$10k/mo <span class="muted-cell">+ housing</span></td>
+          <td class="muted-cell" data-label="Experience Needed">Some coding exposure; no prior internship required</td>
+          <td data-label="Confidence"><span class="badge badge-neutral">SOPH/JR</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://jobs.lever.co/palantir?commitment=Internship">Apply →</a></td>
         </tr>
       </tbody>
     </table>

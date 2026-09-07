@@ -1,4 +1,4 @@
-<title>Product &amp; Data Intern Board</title>
+<title>Business Track Intern Board</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
@@ -96,6 +96,63 @@
 
   footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11.5px; font-family: 'IBM Plex Mono', monospace; }
 
+  @media (max-width: 700px) {
+    .wrap { padding: 24px 14px 56px; }
+    .board-nav { gap: 6px; }
+    .board-nav a { font-size: 11px; padding: 6px 10px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .table-scroll { overflow-x: visible; border: none; box-shadow: none; background: transparent; }
+    table { min-width: 0; }
+    table, tbody, tr { display: block; width: 100%; }
+    thead { display: none; }
+    tbody tr {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+    }
+    tbody tr:hover { background: var(--surface); }
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 7px 0;
+      border-bottom: 1px dashed var(--line);
+      text-align: right;
+    }
+    td::before {
+      content: attr(data-label);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+    td:first-child {
+      display: block;
+      text-align: left;
+      padding-bottom: 10px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+    td:first-child::before { content: none; }
+    td:last-child {
+      display: block;
+      text-align: right;
+      margin-top: 2px;
+      padding-top: 9px;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: none;
+    }
+    td:last-child::before { content: none; }
+  }
+
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
@@ -105,30 +162,30 @@
     <a href="https://claude.ai/code/artifact/08d1580d-ba56-42ae-b9bf-c39737988dde">All Programs</a>
     <a href="https://claude.ai/code/artifact/c8df4743-79d6-4c3f-8758-f10f51dd1b1a">Engineering &amp; Tech</a>
     <a href="https://claude.ai/code/artifact/6bdfb8be-320c-492c-b0a8-2ae688e0ef78">Quant &amp; Trading</a>
-    <a href="#" class="current">Product, Data &amp; Ops</a>
+    <a href="#" class="current">Business Track</a>
   </nav>
 
   <header class="page-head">
-    <div class="eyebrow">Daily Digest &middot; Product, Data &amp; Operations</div>
-    <h1>Product &amp; Data Intern Board</h1>
-    <p class="dek">Freshman &amp; sophomore-eligible Product Management, Data Science, Operations, and Industrial Engineering programs at big tech — plus an honest accounting of where none exist.</p>
+    <div class="eyebrow">Daily Digest &middot; Product, Data, Marketing, Sales &amp; Ops</div>
+    <h1>Business Track Intern Board</h1>
+    <p class="dek">Freshman &amp; sophomore-eligible Product Management, Data Science, Marketing, Sales, Operations, and Industrial Engineering programs at big tech — plus an honest accounting of where none exist.</p>
     <div class="meta-line">
-      <span>Last updated: Sep 6, 2026</span>
+      <span>Last updated: Sep 7, 2026</span>
       <span>&middot;</span>
-      <span>2 programs found</span>
+      <span>3 programs found</span>
       <span>&middot;</span>
       <span>2 categories: no verified programs</span>
     </div>
   </header>
 
   <div class="stats">
-    <div class="stat"><span class="num">2</span><span class="label">Confirmed programs found</span></div>
-    <div class="stat"><span class="num">2</span><span class="label">Programs cover Product Mgmt</span></div>
+    <div class="stat"><span class="num">3</span><span class="label">Confirmed programs found</span></div>
+    <div class="stat"><span class="num">4</span><span class="label">Business functions covered</span></div>
     <div class="stat"><span class="num">2</span><span class="label">Categories with zero results</span></div>
   </div>
 
   <div class="notice">
-    <b>Why this page is short:</b> dedicated freshman/sophomore pipelines are a niche big-tech HR product, and almost all of them are built for software engineering. Product Management, Data Science, Operations, and Industrial Engineering versions are rare — I checked each directly against official company sources rather than repeat aggregator claims that don't hold up (see the Google APM and Amazon Propel notes below).
+    <b>Why this page is short:</b> dedicated freshman/sophomore pipelines are a niche big-tech HR product, and almost all of them are built for software engineering. Product Management, Data Science, Marketing, Sales, Operations, and Industrial Engineering versions are rare — I checked each directly against official company sources rather than repeat aggregator claims that don't hold up (see the Not-Eligible notes below).
   </div>
 
   <div class="section-label">Confirmed Programs</div>
@@ -142,24 +199,34 @@
       </thead>
       <tbody>
         <tr>
-          <td><div class="program-name">Duolingo — Thrive</div><div class="program-track">Sophomores from underrepresented backgrounds</div></td>
-          <td class="muted-cell">Product Mgmt / SWE / Design</td>
-          <td class="muted-cell">Pittsburgh, PA (HQ)</td>
-          <td class="mono">10 wks</td>
-          <td class="when-cell"><span class="season-dot"></span>Summer 2027 (PM track opens Oct 2026)</td>
-          <td class="muted-cell">2+ CS courses; Java/Python/Kotlin/Swift</td>
-          <td><span class="badge badge-med">MEDIUM</span></td>
-          <td><a class="apply-link" href="https://careers.duolingo.com/">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">Duolingo — Thrive</div><div class="program-track">Sophomores from underrepresented backgrounds</div></td>
+          <td class="muted-cell" data-label="Category">Product Mgmt / SWE / Design</td>
+          <td class="muted-cell" data-label="Location">Pittsburgh, PA (HQ)</td>
+          <td class="mono" data-label="Duration">10 wks</td>
+          <td class="when-cell" data-label="When"><span class="season-dot"></span>Summer 2027 (PM track opens Oct 2026)</td>
+          <td class="muted-cell" data-label="Experience Needed">2+ CS courses; Java/Python/Kotlin/Swift</td>
+          <td data-label="Confidence"><span class="badge badge-med">MEDIUM</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://careers.duolingo.com/">Apply →</a></td>
         </tr>
         <tr>
-          <td><div class="program-name">MongoDB — Next in Tech Summit</div><div class="program-track">Underrepresented students, Developer or "Technology+" track</div></td>
-          <td class="muted-cell">Data Science / SWE (Tech+ track)</td>
-          <td class="muted-cell">New York, NY (virtual event)</td>
-          <td class="mono">1-day virtual summit</td>
-          <td class="when-cell"><span class="season-dot"></span>Leads to Summer 2027 interviews</td>
-          <td class="muted-cell">1 language (Java/Python/Go/C++ or similar OOP)</td>
-          <td><span class="badge badge-med">MEDIUM</span></td>
-          <td><a class="apply-link" href="https://www.mongodb.com/company/careers/students-and-graduates">Apply →</a></td>
+          <td data-label="Program"><div class="program-name">MongoDB — Next in Tech Summit</div><div class="program-track">Underrepresented students, Developer or "Technology+" track</div></td>
+          <td class="muted-cell" data-label="Category">Data Science / SWE (Tech+ track)</td>
+          <td class="muted-cell" data-label="Location">New York, NY (virtual event)</td>
+          <td class="mono" data-label="Duration">1-day virtual summit</td>
+          <td class="when-cell" data-label="When"><span class="season-dot"></span>Leads to Summer 2027 interviews</td>
+          <td class="muted-cell" data-label="Experience Needed">1 language (Java/Python/Go/C++ or similar OOP)</td>
+          <td data-label="Confidence"><span class="badge badge-med">MEDIUM</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://www.mongodb.com/company/careers/students-and-graduates">Apply →</a></td>
+        </tr>
+        <tr>
+          <td data-label="Program"><div class="program-name">Google — BOLD Immersion</div><div class="program-track">Sophomores, historically underrepresented groups</div></td>
+          <td class="muted-cell" data-label="Category">Marketing / Sales / Finance / Legal / Comms / HR</td>
+          <td class="muted-cell" data-label="Location">Mountain View, CA + other US sites</td>
+          <td class="mono" data-label="Duration">3 wks</td>
+          <td class="when-cell" data-label="When"><span class="season-dot"></span>Summer (exact 2027 dates TBD)</td>
+          <td class="muted-cell" data-label="Experience Needed">None — no business or tech background required</td>
+          <td data-label="Confidence"><span class="badge badge-med">MEDIUM</span></td>
+          <td data-label="Apply"><a class="apply-link" href="https://careers.google.com/programs/bold/">Apply →</a></td>
         </tr>
       </tbody>
     </table>
@@ -182,12 +249,15 @@
   <div class="callout" style="margin-bottom:10px;">
     <b>Google APM</b> (Associate Product Manager) — official Google eligibility is rising seniors and equivalent grad students only. Freshmen and sophomores cannot apply, despite this being the most well-known "big tech PM internship."
   </div>
+  <div class="callout" style="margin-bottom:10px;">
+    <b>Google BOLD</b> (the full internship, not Immersion) — also rising-senior only. Only the 3-week <b>BOLD Immersion</b> track (listed above) is open to sophomores.
+  </div>
   <div class="callout">
-    <b>Amazon Propel</b> &amp; <b>LinkedIn "First Play"</b> — widely repeated across aggregator sites as freshman/sophomore programs, but neither has a current official-domain posting confirming 2027 eligibility, dates, or even that the program still runs. Treating both as unconfirmed rather than listing them as real.
+    <b>Amazon Propel</b>, <b>LinkedIn "First Play"</b> &amp; <b>Salesforce "Tech Launchpad"</b> — widely repeated across aggregator sites as freshman/sophomore programs, but none has a current official-domain posting confirming 2027 eligibility or that the program is marketing/sales-focused (Tech Launchpad is confirmed but is a software-engineering bootcamp, not sales). Treating all three as unconfirmed or out-of-scope rather than listing them as real matches.
   </div>
 
   <div class="bottom-line">
-    <b>Bottom line:</b> if you're set on Product Management or Data Science as a freshman/sophomore, Duolingo Thrive and MongoDB's Next in Tech Summit are the only two big-tech programs I could verify. Everything else in these four categories is either for upperclassmen only or unconfirmed.
+    <b>Bottom line:</b> if you're set on a business-side role as a freshman/sophomore, Google BOLD Immersion is the only verified path into Marketing or Sales specifically. Duolingo Thrive and MongoDB's Next in Tech Summit cover Product Management and Data Science. Operations and Industrial Engineering have no verified big-tech underclassman program at all.
   </div>
 
   <footer>
