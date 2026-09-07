@@ -1,0 +1,191 @@
+<title>Quant Intern Board</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #161a1f;
+    --paper: #f5f6f3;
+    --surface: #ffffff;
+    --line: #dfe1db;
+    --line-strong: #c9cdc4;
+    --muted: #6b7178;
+    --accent: #1d5f8a;
+    --accent-soft: #e5eef3;
+    --good: #2f7a4f;
+    --good-soft: #e6f2ea;
+    --warn: #8a6a12;
+    --warn-soft: #f7edd6;
+    --critical: #a1433f;
+    --critical-soft: #f6e6e4;
+    --neutral-badge: #eceeea;
+    --neutral-badge-ink: #5a5f68;
+    --shadow: 0 1px 2px rgba(22,26,31,0.04), 0 8px 24px rgba(22,26,31,0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #eef0ee; --paper: #14171a; --surface: #1b1f23; --line: #2b3035; --line-strong: #3a4046;
+      --muted: #9aa1a8; --accent: #7fb6d9; --accent-soft: #1f2f38; --good: #7dc79a; --good-soft: #1c2e23;
+      --warn: #e0bd63; --warn-soft: #362c15; --critical: #e08b86; --critical-soft: #38201f;
+      --neutral-badge: #2a2f34; --neutral-badge-ink: #b7bcc2;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #eef0ee; --paper: #14171a; --surface: #1b1f23; --line: #2b3035; --line-strong: #3a4046;
+    --muted: #9aa1a8; --accent: #7fb6d9; --accent-soft: #1f2f38; --good: #7dc79a; --good-soft: #1c2e23;
+    --warn: #e0bd63; --warn-soft: #362c15; --critical: #e08b86; --critical-soft: #38201f;
+    --neutral-badge: #2a2f34; --neutral-badge-ink: #b7bcc2;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  * { box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .board-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .board-nav a {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em;
+    color: var(--muted); text-decoration: none; padding: 7px 13px; border-radius: 999px;
+    border: 1px solid var(--line-strong); background: var(--surface);
+  }
+  .board-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .board-nav a.current { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+
+  header.page-head { display: flex; flex-direction: column; gap: 10px; padding-bottom: 28px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+  h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: clamp(28px, 4vw, 40px); line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+  .dek { color: var(--muted); font-size: 14.5px; max-width: 62ch; line-height: 1.55; }
+  .meta-line { display: flex; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 28px; }
+  .stat { background: var(--surface); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; }
+  .stat .num { font-family: 'Fraunces', serif; font-weight: 600; font-size: 26px; font-variant-numeric: tabular-nums; }
+  .stat .label { font-size: 11.5px; color: var(--muted); letter-spacing: 0.01em; }
+
+  .notice { background: var(--critical-soft); border-left: 3px solid var(--critical); border-radius: 6px; padding: 12px 16px; font-size: 13px; color: var(--ink); line-height: 1.55; margin-bottom: 24px; }
+  .notice b { color: var(--critical); }
+
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 32px 0 12px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: var(--shadow); }
+  table { width: 100%; min-width: 780px; border-collapse: collapse; font-size: 13px; }
+  thead th { position: sticky; top: 0; background: var(--surface); text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); font-weight: 500; padding: 12px 14px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody tr { border-bottom: 1px solid var(--line); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--accent-soft); }
+  td { padding: 13px 14px; vertical-align: top; color: var(--ink); }
+  .program-name { font-weight: 600; font-size: 13.5px; }
+  .program-track { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+  .mono { font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .muted-cell { color: var(--muted); }
+  .when-cell.flag { color: var(--critical); font-weight: 600; }
+  .when-cell .season-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 6px; background: var(--good); }
+  .when-cell.flag .season-dot { background: var(--critical); }
+
+  .badge { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.03em; padding: 3px 8px; border-radius: 5px; white-space: nowrap; }
+  .badge-neutral { background: var(--neutral-badge); color: var(--neutral-badge-ink); }
+
+  .apply-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 12.5px; white-space: nowrap; }
+  .apply-link:hover { text-decoration: underline; }
+
+  .bottom-line { background: var(--accent-soft); border-radius: 10px; padding: 16px 20px; font-size: 13.5px; line-height: 1.6; color: var(--ink); margin-top: 28px; }
+  .bottom-line b { color: var(--accent); }
+
+  footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11.5px; font-family: 'IBM Plex Mono', monospace; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+  <nav class="board-nav">
+    <a href="https://claude.ai/code/artifact/08d1580d-ba56-42ae-b9bf-c39737988dde">All Programs</a>
+    <a href="https://claude.ai/code/artifact/c8df4743-79d6-4c3f-8758-f10f51dd1b1a">Engineering &amp; Tech</a>
+    <a href="#" class="current">Quant &amp; Trading</a>
+  </nav>
+
+  <header class="page-head">
+    <div class="eyebrow">Daily Digest &middot; Quant &amp; Trading</div>
+    <h1>Quant Intern Board</h1>
+    <p class="dek">Freshman &amp; sophomore-eligible pipeline programs and diversity internships at quant trading firms in the USA.</p>
+    <div class="meta-line">
+      <span>Last updated: Sep 6, 2026</span>
+      <span>&middot;</span>
+      <span>4 programs tracked</span>
+      <span>&middot;</span>
+      <span>Cycle: Fall 2026 – Winter 2027</span>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><span class="num">4</span><span class="label">Programs tracked</span></div>
+    <div class="stat"><span class="num">2</span><span class="label">Run in winter, not summer</span></div>
+    <div class="stat"><span class="num">3</span><span class="label">Pay not publicly disclosed</span></div>
+    <div class="stat"><span class="num">1</span><span class="label">Single-day event (unpaid)</span></div>
+  </div>
+
+  <div class="notice">
+    <b>These are shorter, off-cycle programs</b> — mostly multi-day pipeline events or 1–4 week programs, not full 10-12 week summer internships. They're designed to fast-track you into a full internship later, not to be the internship itself (except WITTI, which is its own standalone winter internship).
+  </div>
+
+  <div class="section-label">Confirmed &amp; Likely-Open Programs</div>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Program</th><th>Location</th><th>Duration</th><th>When</th><th>Reported Pay</th><th>Type</th><th>Apply</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="program-name">Jane Street — FTTP</div><div class="program-track">Pipeline event, not a full internship</div></td>
+          <td class="muted-cell">New York, NY</td>
+          <td class="mono">~3–4 days</td>
+          <td class="when-cell"><span class="season-dot"></span>Fall/Winter 2026</td>
+          <td class="muted-cell">Not disclosed</td>
+          <td><span class="badge badge-neutral">1ST-YEAR</span></td>
+          <td><a class="apply-link" href="https://www.janestreet.com/join-jane-street/programs-and-events/fttp/">Apply →</a></td>
+        </tr>
+        <tr>
+          <td><div class="program-name">SIG — Discovery Day</div><div class="program-track">Trading / Quant Research</div></td>
+          <td class="muted-cell">Bala Cynwyd, PA</td>
+          <td class="mono">1 day</td>
+          <td class="when-cell"><span class="season-dot"></span>TBD (recruiting event)</td>
+          <td class="muted-cell">N/A — unpaid</td>
+          <td><span class="badge badge-neutral">FR/SOPH</span></td>
+          <td><a class="apply-link" href="https://careers.sig.com/sig-discovery-days/">Apply →</a></td>
+        </tr>
+        <tr>
+          <td><div class="program-name">HRT — WITTI</div><div class="program-track">Trading Technology, women-focused</div></td>
+          <td class="muted-cell">New York, NY</td>
+          <td class="mono">2–4 wks</td>
+          <td class="when-cell flag"><span class="season-dot"></span>Winter (starts ~Jan 6)</td>
+          <td class="muted-cell">Not disclosed</td>
+          <td><span class="badge badge-neutral">WOMEN</span></td>
+          <td><a class="apply-link" href="https://boards.greenhouse.io/wehrtyou/jobs/6305711">Apply →</a></td>
+        </tr>
+        <tr>
+          <td><div class="program-name">Virtu — Women's Winternship</div><div class="program-track">Trading / Technology</div></td>
+          <td class="muted-cell">New York, NY (+ Dublin)</td>
+          <td class="mono">1 wk</td>
+          <td class="when-cell flag"><span class="season-dot"></span>Winter (~Jan 5–9)</td>
+          <td class="muted-cell">Not disclosed</td>
+          <td><span class="badge badge-neutral">WOMEN</span></td>
+          <td><a class="apply-link" href="https://job-boards.greenhouse.io/virtu/jobs/7505552002">Apply →</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bottom-line">
+    <b>Bottom line:</b> quant-firm underclassman programs run on a different calendar than tech — mostly fall/winter recruiting events feeding into summer internship offers, or standalone women-in-trading winter programs. Apply early: several use rolling admissions.
+  </div>
+
+  <footer>
+    Compiled manually via Claude Code — the daily cloud routine (8:15pm PT) is still being debugged for a platform-side stall. This page is a static snapshot, not a live feed.
+  </footer>
+
+</div>
