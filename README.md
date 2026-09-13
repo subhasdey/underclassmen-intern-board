@@ -6,6 +6,8 @@ Daily-compiled digest of freshman & sophomore-eligible tech and quant internship
 - `tech.html` — Engineering & Tech only
 - `quant.html` — Quant & Trading only
 - `product-data-ops.html` — Product / Data / Ops / Business / Marketing only
+- `umich.html` — Employer reference list for UMich CS & Robotics (not filtered by class year; sourced from official UMich pages)
+- `purdue.html` — Employer reference list for Purdue's Integrated Business & Engineering (IBE) program, cross-checked against the eligibility standard above
 
 Refreshed nightly (~8:15pm PT) by an automated Claude Code routine that re-checks each listed program and searches for newly eligible ones.
 
