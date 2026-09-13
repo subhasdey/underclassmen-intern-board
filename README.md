@@ -5,7 +5,8 @@ Daily-compiled digest of freshman & sophomore-eligible tech and quant internship
 - `index.html` — All programs (filterable by track)
 - `tech.html` — Engineering & Tech only
 - `quant.html` — Quant & Trading only
+- `product-data-ops.html` — Product / Data / Ops / Business / Marketing only
 
-Compiled manually while a daily automated cloud routine (targeted for 8:15pm PT) is debugged for a platform-side execution stall.
+Refreshed nightly (~8:15pm PT) by an automated Claude Code routine that re-checks each listed program and searches for newly eligible ones.
 
-Data noted as "confirmed," "medium confidence," or "unconfirmed" based on whether official company career pages corroborate third-party/aggregator claims — several widely-repeated claims (e.g. a Salesforce "Tech Launchpad" program) could not be verified on official sources and were excluded.
+Data noted as "confirmed," "medium confidence," or "unconfirmed" based on whether official company career pages corroborate third-party/aggregator claims — some widely-repeated claims (e.g. a Salesforce "Tech Launchpad" program) turn out to be real on the official source but ineligible for this list (Tech Launchpad is for rising juniors, not freshmen/sophomores) and are excluded for that reason instead.
