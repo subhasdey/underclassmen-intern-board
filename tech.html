@@ -81,6 +81,8 @@
   .mono { font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
   .muted-cell { color: var(--muted); }
   .when-cell .season-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 6px; background: var(--good); }
+  .when-cell.flag { color: var(--critical); font-weight: 600; }
+  .when-cell.flag .season-dot { background: var(--critical); }
 
   .badge { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.03em; padding: 3px 8px; border-radius: 5px; white-space: nowrap; }
   .badge-high { background: var(--good-soft); color: var(--good); }
@@ -175,7 +177,7 @@
     <h1>Engineering Intern Board</h1>
     <p class="dek">Freshman &amp; sophomore-eligible software, hardware, and engineering internship programs at big tech companies in the USA.</p>
     <div class="meta-line">
-      <span>Last updated: Nov 15, 2026</span>
+      <span>Last updated: Nov 16, 2026</span>
       <span>&middot;</span>
       <span>39 programs tracked</span>
       <span>&middot;</span>
@@ -549,7 +551,7 @@
           <td data-label="Program"><div class="program-name">Versant — Summer Internship (Technology, Product, Design &amp; Engineering)</div><div class="program-track">Fandango / GolfNow / Rotten Tomatoes / Full Swing brands; distinct from the Business Track board's Versant row</div></td>
           <td class="muted-cell" data-label="Location">Los Angeles, CA / Orlando, FL (varies by role)</td>
           <td class="mono" data-label="Duration">10 wks (Jun 7–Aug 13, 2027)</td>
-          <td class="when-cell" data-label="When"><span class="season-dot"></span>Summer 2027 — apply by Nov 16, 2026 (1 day left); same deadline and eligibility language recur across multiple independent Versant job-family postings (Technology/Product/Design/Engineering, Digital Analytics &amp; Communications), suggesting a shared company-wide window; no versant.com page reached directly (WebFetch blocked)</td>
+          <td class="when-cell flag" data-label="When"><span class="season-dot"></span>Summer 2027 — Nov 16, 2026 deadline is today; same deadline and eligibility language recur across multiple independent Versant job-family postings (Technology/Product/Design/Engineering, Digital Analytics &amp; Communications), suggesting a shared company-wide window; no versant.com page reached directly (WebFetch blocked)</td>
           <td class="mono" data-label="Reported Pay">$25/hr</td>
           <td class="muted-cell" data-label="Experience Needed">Sophomore standing or above (30+ credits) by program start; actively enrolled through the full program or graduating Spring 2027, per consistently mirrored posting text (ShowbizJobs, startup.jobs, et al.)</td>
           <td data-label="Confidence"><span class="badge badge-med">MEDIUM</span></td>
@@ -629,7 +631,7 @@
   </div>
 
   <div class="bottom-line">
-    <b>Bottom line:</b> no new rows tonight (holds at 39). One new pending lead found: <b>Oracle</b>'s internship eligibility language is consistently sophomore-or-higher across aggregators, but no live Summer 2027 SWE requisition or direct oracle.com confirmation was found — held as a lead, not added as a row. Also fixed: the Versant row's deadline countdown, now 1 day to the Nov 16, 2026 deadline (was stale at "4 days left"). Re-checked with no change: NVIDIA Ignite (still closed), Capital One TEIP (sources still conflict on 2027 status, no official-domain confirmation), LinkedIn First Play (no 2027 req confirmed live), CrowdStrike Launch (an Intelligence-track Summer 2027 req is now live via job-board mirrors, but no Engineering-track Launch requisition found yet), Dell DTIS, Google SWE Intern BS, Boeing IDT&amp;S, Jane Street JSIP, BAE Systems Intern I, Goldwater Summer Research Internship, NSA Co-op, and Northrop Grumman all show the same status as last night. TI's "Engineer Your Future" workshop remains unconfirmed for 2027; a separate TI "Career Accelerator Program" found tonight requires a completed bachelor's degree (a new-grad track), so it doesn't qualify for this list. Intel IRISE remains unconfirmed. This session's outbound WebFetch again resolved only a narrow host allowlist tonight (github.com succeeded; capitalonecareers.com, pgcareers.com, and a getsmartresume.com lookup all failed to resolve), confirming the session-wide network restriction persists — verification again relied on WebSearch results that themselves quote or cite each source's own official posting language, rather than a raw page read.
+    <b>Bottom line:</b> no new rows tonight (holds at 39). Versant's Nov 16, 2026 deadline is today — flagged accordingly. Widened tonight's search to Anduril (official postings require rising-junior-or-later standing — confirmed not eligible, so not added) and re-checked Oracle's SWE Intern (still no live Summer 2027 requisition or direct oracle.com confirmation; oracle.com returned a 403 tonight rather than resolving) — still held as a lead, not added as a row. Re-checked with no change: NVIDIA Ignite (still closed), Capital One TEIP (a separate general "Technology Internship Program Summer 2027" req is live on capitalonecareers.com but lacks TEIP's sophomore-specific eligibility language, so it isn't swapped in), LinkedIn First Play (no 2027 req confirmed live), CrowdStrike Launch, Dell DTIS, Google SWE Intern BS, Boeing IDT&amp;S, Jane Street JSIP, BAE Systems Intern I, Goldwater Summer Research Internship, NSA Co-op, and Northrop Grumman all show the same status as last night. TI's "Engineer Your Future" workshop remains unconfirmed for 2027. Intel IRISE remains unconfirmed. This session's outbound WebFetch again resolved only a narrow host allowlist tonight (github.com succeeded; oracle.com returned 403, capitalonecareers.com and careers.mastercard.com failed to resolve), confirming the session-wide network restriction persists — verification again relied on WebSearch results that themselves quote or cite each source's own official posting language, rather than a raw page read.
   </div>
 
   <footer>
